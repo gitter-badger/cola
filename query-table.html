@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!--####################################################################
+	THIS IS A GENERATED FILE -- ANY CHANGES MADE WILL BE OVERWRITTEN
+
+	INSTEAD CHANGE:
+	source: guides/components/query-table.md
+	@page query-table
+######################################################################## -->
+
+<!--[if lt IE 7]>
+<html class="no-js ie lt-ie9 lt-ie8 lt-ie7" lang="en">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js ie lt-ie9 lt-ie8" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js ie lt-ie9" lang="en">
+<![endif]-->
+<!--[if IE 9]>
+<html class="no-js ie ie9" lang="en">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Cola  - query-table</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<link rel="stylesheet" type="text/css" href="./static/bundles/static.css">
+	
+	<!--[if lt IE 9]>
+   <script type="text/javascript" src="static/html5shiv.js"></script>
+    <!--<![endif]-->
+</head>
+
+<body class="docs">
+	
+	<header>
+		<nav class="container">
+
+			<div class="logo-menu">
+				<a class="brand" href="./index.html">Cola</a>
+			</div>
+
+			<div class="pull-right">
+				<div class="bitovi-menu">
+					<a href="http://bitovi.com" class="bitovi icon-bits">Bitovi</a>
+					<ul class="dropdown-menu">
+						<li><a href="http://bitovi.com">Bitovi.com</a></li>
+						<li><a href="http://bitovi.com/blog/">Blog</a></li>
+						<li><a href="http://bitovi.com/design/">Design</a></li>
+						<li><a href="http://bitovi.com/development/">Development</a></li>
+						<li><a href="http://bitovi.com/training/">Training</a></li>
+						<li><a href="http://bitovi.com/open-source/">Open Source</a></li>
+						<li><a href="http://bitovi.com/people/">People</a></li>
+						<li><a href="http://bitovi.com/contact/">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	
+
+	
+<div class="container api">
+
+	
+	<nav class="sidebar">
+		
+		<ul class="api cascading primary-grouping"> 
+	
+		
+		<li class="search-container active parent">
+			<a class="sidebar-title" href="index.html" data-search="Cola">
+				Cola
+			</a>
+			
+		</li>
+		
+		
+			
+			<li class="search-container active">
+			<a class="sidebar-title" href="query-table.html" data-search="query-table">
+				query-table
+			</a>
+			
+		</li>
+			
+		
+	
+</ul>
+	</nav>
+	
+	
+	
+	<article class="content docs">
+	
+	
+		
+		<section class="title">
+			<div class="heading">
+<h1>query-table</h1>
+	<ul class="tags">
+		<li>page</li>
+	</ul>
+	
+	
+</div>
+
+<div class="sub-heading">
+	
+	
+	<span class="inherits">&nbsp;</span>
+</div>
+
+<ul class="links">
+	
+	
+	
+	
+</ul>
+<br />
+		</section>
+		
+		
+		
+		<section class="contents">
+		</section>
+		
+		
+		
+
+		
+		<section class="description">
+			<h1>query-table</h1>
+<h2>Usage:</h2>
+
+		</section>
+		
+
+		
+			
+		
+		
+		
+		
+
+		
+		<section class="comment">
+			<pre><code class="language-html">&lt;query-table {object-model}=&quot;myModal&quot; {fields}=&quot;myFieldsArray&quot; /&gt;
+</code></pre>
+<h2>Description:</h2>
+<p>A simple query table component that displays a query in a table.</p>
+<h2>View Model Properties</h2>
+<p>Property       | Type           | Default     | Description
+-------------- | -------------- | ----------- | -------------------------
+<code>object-model</code> | <code>can.Model</code>    | <code>null</code>      | The model object to use to query and update
+<strong>Optional</strong>   |                |             |
+<code>fields</code>       | <code>String[]</code>     | <code>undefined</code> | An array of fields to display. Any fields not in this array will not be included. All fields included by default
+<code>editable</code>     | <code>boolean</code>      | <code>false</code>     | Whether or not to enable editing on this model
+<strong>Read-only</strong>  |                |             |
+<code>isLoading</code>    | <code>boolean</code>      | <code>null</code>      | Current loading state of the widget
+<code>deferred</code>     | <code>can.Deferred</code> | <code>null</code>      | Deferred representing currently pending operations
+<code>objects</code>      | <code>boolean</code>      | <code>null</code>      | The list of current objects in the model
+<code>edit_object</code>  | <code>can.Map</code>      | <code>null</code>      | The current object being edited</p>
+<h2>View Model Methods</h2>
+<p>Method                                          | Returns     | Description
+----------------------------------------------- | ----------- | ---------
+<code>filterData(Object[] objects, String[] fields)</code> | <code>Object[]</code>  | Removes properties not in the list of fields and returns a new array
+<code>editObject(Object objects)</code>                    | <code>undefined</code> | Sets the active <code>edit_object</code> property and shows a dialog
+<code>formSubmit(can.Map scope, DomNode form)</code>       | <code>false</code>     | Modifies and saves the edit_object with the submitted form data
+<code>createObject()</code>                                | <code>undefined</code> | Creates a new object and calls <code>editObject</code>
+<code>deleteObject()</code>                                | <code>false</code>     | Removes object by calling the objects <code>destroy</code> method</p>
+
+		</section>
+		
+		
+
+		
+
+		
+	
+	
+	</article>
+	
+	
+
+</div>
+
+
+
+
+
+	
+	<footer>
+		<nav class="container">
+			<a class="brand javascriptmvc" href="index.html"></a>
+		</nav>
+	</footer>
+	
+	
+	<script type="text/javascript">
+		var docObject = {"type":"page","name":"query-table","src":"guides/components/query-table.md","description":"# query-table\n## Usage:","glob":{"pattern":"{guides,components,providers}/**/*.{js,md}","ignore":"{node_modules,bower_components}/**/*","cwd":"/home/gregg/public_html/cola"},"dest":"/home/gregg/public_html/cola-docs","watch":true,"generators":["html"],"docConfigDest":"../cola/documentjs.json","project":{}};
+	</script>
+	
+	
+		<script>
+		  steal = {
+		    instantiated: {
+		      "bundles/static.css!$css" : null
+		    }
+		  }
+		</script>
+		<script type='text/javascript' 
+				data-main="static"
+				data-config="./static/config.js"
+				src="./static/steal.production.js"
+	    		bundles-path="bundles"></script>
+	
+</body>
+
+</html>

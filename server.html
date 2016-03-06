@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--####################################################################
+	THIS IS A GENERATED FILE -- ANY CHANGES MADE WILL BE OVERWRITTEN
+
+	INSTEAD CHANGE:
+	source: guides/Server.md
+	@page server
+######################################################################## -->
+
+<!--[if lt IE 7]>
+<html class="no-js ie lt-ie9 lt-ie8 lt-ie7" lang="en">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js ie lt-ie9 lt-ie8" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js ie lt-ie9" lang="en">
+<![endif]-->
+<!--[if IE 9]>
+<html class="no-js ie ie9" lang="en">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Cola - Server Setup </title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<link rel="stylesheet" type="text/css" href="./static/bundles/static.css">
+	
+	<!--[if lt IE 9]>
+   <script type="text/javascript" src="static/html5shiv.js"></script>
+    <!--<![endif]-->
+</head>
+
+<body class="docs">
+	
+	<header>
+		<nav class="container">
+
+			<div class="logo-menu">
+				<a class="brand" href="./index.html">Cola</a>
+			</div>
+
+			<div class="pull-right">
+				<div class="bitovi-menu">
+					<a href="http://bitovi.com" class="bitovi icon-bits">Bitovi</a>
+					<ul class="dropdown-menu">
+						<li><a href="http://bitovi.com">Bitovi.com</a></li>
+						<li><a href="http://bitovi.com/blog/">Blog</a></li>
+						<li><a href="http://bitovi.com/design/">Design</a></li>
+						<li><a href="http://bitovi.com/development/">Development</a></li>
+						<li><a href="http://bitovi.com/training/">Training</a></li>
+						<li><a href="http://bitovi.com/open-source/">Open Source</a></li>
+						<li><a href="http://bitovi.com/people/">People</a></li>
+						<li><a href="http://bitovi.com/contact/">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	
+
+	
+<div class="container api">
+
+	
+	<nav class="sidebar">
+		
+		<ul class="api cascading primary-grouping"> 
+	
+		
+		<li class="search-container active parent">
+			<a class="sidebar-title" href="index.html" data-search="Cola">
+				Cola
+			</a>
+			
+		</li>
+		
+		
+			
+			<li class="search-container active">
+			<a class="sidebar-title" href="guides.html" data-search="Getting Started">
+				Getting Started
+			</a>
+			
+	<ul>
+		
+			
+				
+				
+				<li class="search-container">
+					<a class="page" href="printing.html" data-search="Printing With Mapfish">
+						Printing With Mapfish
+					</a>
+				</li>
+				
+			
+			
+		
+			
+				
+				
+				<li class="search-container active ">
+					<a class="page" href="server.html" data-search="Server Setup">
+						Server Setup
+					</a>
+				</li>
+				
+			
+			
+		
+	</ul>
+
+		</li>
+			
+		
+	
+</ul>
+	</nav>
+	
+	
+	
+	<article class="content docs">
+	
+	
+		
+		<section class="title">
+			<div class="heading">
+<h1>Server Setup</h1>
+	<ul class="tags">
+		<li>page</li>
+	</ul>
+	
+	
+</div>
+
+<div class="sub-heading">
+	
+	
+		<span class="module">server</span>
+	
+	
+	
+	<span class="inherits">&nbsp;</span>
+</div>
+
+<ul class="links">
+	
+		<li><a href="http://geoserver.org/">Geoserver</a></li>
+	
+	
+	
+	
+</ul>
+<br />
+		</section>
+		
+		
+		
+		<section class="contents">
+		</section>
+		
+		
+		
+
+		
+		<section class="description">
+			<!--
+-->
+
+		</section>
+		
+
+		
+			
+		
+		
+		
+		
+
+		
+		<section class="comment">
+			<p>Any wms server can be used, since the app was tested with Geoserver, this guide will explain how to set up Geoserver.</p>
+<p>A great way to avoid problems is to setup geoserver behind a reverse proxy. This solves issues involving Cross Origin requests where requests are blocked because Geoserver runs on a different port than your web server.</p>
+<p>Alternatively, you can <a href="http://enable-cors.org/index.html">enable cors</a> on the software running geoserver.</p>
+<p>The following will allow you to access geoserver at localhost/geoserver as opposed to localhost:8080/geoserver.</p>
+<h2>Apache2</h2>
+<p>In <code>/etc/apache2/httpd.conf</code> include an additional file:</p>
+<pre><code>Include /etc/apache2/geoserver.conf
+</code></pre>
+<p>And create a new file: <code>/etc/apache2/geoserver.conf</code> with the following:</p>
+<pre><code>ProxyPass /geoserver http://localhost:8080/geoserver
+ProxyPassReverse /geoserver http://localhost:8080/geoserver
+</code></pre>
+<p>Also enable the mods:</p>
+<pre><code class="language-bash">sudo a2enmod mod_proxy
+sudo a2enmod proxy_http
+</code></pre>
+<h2>Nginx</h2>
+<pre><code>#...
+http {
+    #...
+    upstream geoserver {
+        server 127.0.0.1:8080;
+    }
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] &quot;$request&quot; '
+                      '$status $body_bytes_sent &quot;$http_referer&quot; '
+                      '&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;';
+
+    access_log  C:/www/nginx-1.9.9/logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+
+    server {
+        listen       80;
+        #...
+
+        location /geoserver {
+          proxy_pass         http://geoserver;
+          proxy_redirect     off;
+          proxy_set_header   Host $host;
+          proxy_set_header   X-Real-IP $remote_addr;
+          proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header   X-Forwarded-Host $server_name;
+        }
+        #...
+    }
+  #...
+}
+</code></pre>
+
+		</section>
+		
+		
+
+		
+
+		
+	
+	
+	</article>
+	
+	
+
+</div>
+
+
+
+
+
+	
+	<footer>
+		<nav class="container">
+			<a class="brand javascriptmvc" href="index.html"></a>
+		</nav>
+	</footer>
+	
+	
+	<script type="text/javascript">
+		var docObject = {"type":"page","name":"server","src":"guides/Server.md","description":"<!--\n-->","title":"Server Setup","parent":"guides","links":[{"href":"http://geoserver.org/","title":"Geoserver"}],"glob":{"pattern":"{guides,components,providers}/**/*.{js,md}","ignore":"{node_modules,bower_components}/**/*","cwd":"/home/gregg/public_html/cola"},"dest":"/home/gregg/public_html/cola-docs","watch":true,"generators":["html"],"docConfigDest":"../cola/documentjs.json","project":{}};
+	</script>
+	
+	
+		<script>
+		  steal = {
+		    instantiated: {
+		      "bundles/static.css!$css" : null
+		    }
+		  }
+		</script>
+		<script type='text/javascript' 
+				data-main="static"
+				data-config="./static/config.js"
+				src="./static/steal.production.js"
+	    		bundles-path="bundles"></script>
+	
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!--####################################################################
+	THIS IS A GENERATED FILE -- ANY CHANGES MADE WILL BE OVERWRITTEN
+
+	INSTEAD CHANGE:
+	source: components/widget-model.js
+	@module widgetModel
+######################################################################## -->
+
+<!--[if lt IE 7]>
+<html class="no-js ie lt-ie9 lt-ie8 lt-ie7" lang="en">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js ie lt-ie9 lt-ie8" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js ie lt-ie9" lang="en">
+<![endif]-->
+<!--[if IE 9]>
+<html class="no-js ie ie9" lang="en">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Cola  - widgetModel</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<link rel="stylesheet" type="text/css" href="./static/bundles/static.css">
+	
+	<!--[if lt IE 9]>
+   <script type="text/javascript" src="static/html5shiv.js"></script>
+    <!--<![endif]-->
+</head>
+
+<body class="docs">
+	
+	<header>
+		<nav class="container">
+
+			<div class="logo-menu">
+				<a class="brand" href="./index.html">Cola</a>
+			</div>
+
+			<div class="pull-right">
+				<div class="bitovi-menu">
+					<a href="http://bitovi.com" class="bitovi icon-bits">Bitovi</a>
+					<ul class="dropdown-menu">
+						<li><a href="http://bitovi.com">Bitovi.com</a></li>
+						<li><a href="http://bitovi.com/blog/">Blog</a></li>
+						<li><a href="http://bitovi.com/design/">Design</a></li>
+						<li><a href="http://bitovi.com/development/">Development</a></li>
+						<li><a href="http://bitovi.com/training/">Training</a></li>
+						<li><a href="http://bitovi.com/open-source/">Open Source</a></li>
+						<li><a href="http://bitovi.com/people/">People</a></li>
+						<li><a href="http://bitovi.com/contact/">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	
+
+	
+<div class="container api">
+
+	
+	<nav class="sidebar">
+		
+		<ul class="api cascading primary-grouping"> 
+	
+		
+		<li class="search-container active parent">
+			<a class="sidebar-title" href="index.html" data-search="Cola">
+				Cola
+			</a>
+			
+		</li>
+		
+		<li class="search-container active parent">
+			<a class="sidebar-title" href="components.html" data-search="Components">
+				Components
+			</a>
+			
+		</li>
+		
+		
+			
+			<li class="search-container active">
+			<a class="sidebar-title" href="widgetModel.html" data-search="widgetModel">
+				widgetModel
+			</a>
+			
+	<ul>
+		
+			
+				
+				
+				<li class="search-container">
+					<a class="property" href="widgetModel.instanceId.html" data-search="widgetModel.instanceId">
+						instanceId
+					</a>
+				</li>
+				
+			
+			
+		
+	</ul>
+
+		</li>
+			
+		
+	
+</ul>
+	</nav>
+	
+	
+	
+	<article class="content docs">
+	
+	
+		
+		<section class="title">
+			<div class="heading">
+<h1>widgetModel</h1>
+	<ul class="tags">
+		<li>module</li>
+	</ul>
+	
+	
+</div>
+
+<div class="sub-heading">
+	
+	
+	<span class="inherits">inherits: <a href="can.Map.html">can.Map</a></span>
+</div>
+
+<ul class="links">
+	
+	
+	
+	
+</ul>
+<br />
+		</section>
+		
+		
+		
+		<section class="contents">
+		</section>
+		
+		
+		
+
+		
+		<section class="description">
+			<p>Base widget class, not to be used directly, but inherited from. Benefits include:</p>
+<ul>
+<li>guaranteed unique id (unless overridden by widget-id tag)</li>
+<li>capabilities from custom events provided by <code>can.event</code></li>
+</ul>
+<p>Example:</p>
+<pre><code>import widgetModel from 'components/widget-model'
+export default widgetModel.extend({
+        customProp: value,
+        init: function(){
+            this.dispatch('customEvent', 1);
+        }
+});
+</code></pre>
+
+		</section>
+		
+
+		
+			
+		
+		
+		
+		
+
+		
+		
+
+		
+
+		
+	
+	
+	</article>
+	
+	
+
+</div>
+
+
+
+
+
+	
+	<footer>
+		<nav class="container">
+			<a class="brand javascriptmvc" href="index.html"></a>
+		</nav>
+	</footer>
+	
+	
+	<script type="text/javascript">
+		var docObject = {"name":"widgetModel","type":"module","parent":"components","src":"components/widget-model.js","line":8,"codeLine":29,"description":"Base widget class, not to be used directly, but inherited from. Benefits include:\n- guaranteed unique id (unless overridden by widget-id tag)\n- capabilities from custom events provided by `can.event`\n\nExample:\n```\nimport widgetModel from 'components/widget-model'\nexport default widgetModel.extend({\n\t\tcustomProp: value,\n\t\tinit: function(){\n\t\t\tthis.dispatch('customEvent', 1);\n\t\t}\n});\n```","title":"","inherits":"can.Map","glob":{"pattern":"{guides,components,providers}/**/*.{js,md}","ignore":"{node_modules,bower_components}/**/*","cwd":"/home/gregg/public_html/cola"},"dest":"/home/gregg/public_html/cola-docs","watch":true,"generators":["html"],"docConfigDest":"../cola/documentjs.json","project":{}};
+	</script>
+	
+	
+		<script>
+		  steal = {
+		    instantiated: {
+		      "bundles/static.css!$css" : null
+		    }
+		  }
+		</script>
+		<script type='text/javascript' 
+				data-main="static"
+				data-config="./static/config.js"
+				src="./static/steal.production.js"
+	    		bundles-path="bundles"></script>
+	
+</body>
+
+</html>
